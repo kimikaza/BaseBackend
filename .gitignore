@@ -1,31 +1,31 @@
-*.rbc
-capybara-*.html
-.rspec
-/log
-/tmp
-/db/*.sqlite3
-/public/system
-/coverage/
-/spec/tmp
-**.orig
-rerun.txt
-pickle-email-*.html
+/BaseBackend/*.rbc
+/BaseBackend/capybara-*.html
+/BaseBackend/.rspec
+/BaseBackend/log
+/BaseBackend/tmp
+/BaseBackend/db/*.sqlite3
+/BaseBackend/public/system
+/BaseBackend/coverage/
+/BaseBackend/spec/tmp
+/BaseBackend/**.orig
+/BaseBackend/rerun.txt
+/BaseBackend/pickle-email-*.html
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
-config/initializers/secret_token.rb
-config/secrets.yml
+/BaseBackend/config/initializers/secret_token.rb
+/BaseBackend/config/secrets.yml
 
 ## Environment normalisation:
-/.bundle
-/vendor/bundle
+/BaseBackend/.bundle
+/BaseBackend/vendor/bundle
 
 # these should all be checked in to normalise the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-.rvmrc
+/BaseBackend/.rvmrc
 
 # if using bower-rails ignore default bower_components path bower.json files
-/vendor/assets/bower_components
-*.bowerrc
-bower.json
+/BaseBackend/vendor/assets/bower_components
+/BaseBackend/*.bowerrc
+/BaseBackend/bower.json
