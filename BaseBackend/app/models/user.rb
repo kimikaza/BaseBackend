@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   before_create :generate_confirmation_token
 
+  royce_roles %w[ user editor administrator ]
+
   def password
     @password ||= Password.new(self.encrypted_password)
   end
@@ -22,6 +24,8 @@ class User < ActiveRecord::Base
     self.confirmed_at = Time.now.utc
     self.save!
   end
+
+
 
 private
 
