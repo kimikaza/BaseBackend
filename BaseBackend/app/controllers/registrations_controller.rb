@@ -7,6 +7,8 @@ class RegistrationsController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    #gives "user" role to the newly created user
+    @user.add_role :user
     if @user.save
       flash[:notice] = t("registrations.user.success")
       redirect_to :root
