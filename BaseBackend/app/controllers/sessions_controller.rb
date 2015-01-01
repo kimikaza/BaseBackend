@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  
   skip_before_filter :authenticate!
 
   def new
@@ -12,6 +13,6 @@ class SessionsController < ApplicationController
 
   def destroy
     warden.logout
-    redirect_to sessions_path
+    redirect_to new_sessions_url
   end
 end

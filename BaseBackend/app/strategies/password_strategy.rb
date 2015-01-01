@@ -1,8 +1,10 @@
 class PasswordStrategy < ::Warden::Strategies::Base
   def valid?
-    return false if request.get?
-    user_data = params.fetch("user", {})
-    !(user_data["email"].blank? || user_data["password"].blank?)
+    #return false if request.get?
+    if !params || !params['user'] then return false end
+    params['user']['email'] && params['user']['password']
+    #user_data = params.fetch("user", {})
+    #!(user_data["email"].blank? || user_data["password"].blank?)
   end
 
   # def authenticate!

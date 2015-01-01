@@ -24,7 +24,11 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate!
-    warden.authenticate!
+    puts "AUTHENTICATING"
+    unless signed_in?
+      puts "NEED AUTHENTICATION"
+      warden.authenticate!
+    end
   end
   
 end

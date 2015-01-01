@@ -1,23 +1,13 @@
 class TokenStrategy < ::Warden::Strategies::Base
   def valid?
-    return false if request.get?
-    user_data = params.fetch("user", {})
-    !(user_data["email"].blank? || user_data["password"].blank?)
+    if !params || !params['user'] then return false end
+    !params['user']['email'] && !params['user']['password'] && params['user']['auth_token']
   end
-
-  # def authenticate!
-  #   user = User.find_by_email(params["user"].fetch("email"))
-  #   if user.nil? || user.confirmed_at.nil? || user.password != params["user"].fetch("password")
-  #     fail! :message => "strategies.password.failed"
-  #   else
-  #     success! user
-  #   end
-  # end
-
+  
   def authenticate!
-    user = User.find_by_email(params["user"].fetch("email"))
-    if user.nil? || user.password != params["user"].fetch("password")
-      fail :message => "strategies.password.failed"
+    user = User.find_by_auth_token(params["user"].fetch("auth_token"))
+    if user.nil? || user.auth_token != params["user"].fetch("auth_token")
+      fail! :message => "strategies.password.failed"
     else
       success! user
     end
