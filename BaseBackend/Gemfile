@@ -30,6 +30,9 @@ gem 'warden'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# role model+convenience methods
+gem 'royce'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
