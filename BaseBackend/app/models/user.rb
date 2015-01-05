@@ -26,9 +26,25 @@ class User < ActiveRecord::Base
     self.save!
   end
 
+  def self.from_email(email)
+    where("email = ?", email).first
+
+  def self.from_omniauth(auth)
+    where("email = ?", auth[:info][:email]).first
+    #where("email = ?", auth[:info][:email]).first || create_from_omniauth(auth)
+  end
+
+  def self.create_from_omniauth(auth)
+    create! do |user|
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+      user.name = auth["info"]["nickname"]
+    end
+  end
 
 
-private
+
+  private
 
   def generate_confirmation_token
     loop do

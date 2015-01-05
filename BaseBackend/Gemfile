@@ -36,6 +36,10 @@ gem 'royce'
 # handling access to actions
 gem 'pundit'
 
+#omniauth
+gem 'omniauth-facebook'
+gem 'fb_graph2'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
