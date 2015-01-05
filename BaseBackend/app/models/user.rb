@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates :email, :presence => true
 
   before_create :generate_confirmation_token
+  before_create :generate_auth_token
 
   royce_roles %w[ user editor administrator ]
 
@@ -39,4 +40,15 @@ private
       end
     end
   end
+
+  def generate_auth_token
+    loop do
+      token = SecureRandom.urlsafe_base64
+      unless User.where(:auth_token => token).any?
+        self.auth_token = token
+        break
+      end
+    end
+  end
+
 end

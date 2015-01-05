@@ -10,8 +10,17 @@ class RegistrationsController < ApplicationController
     #gives "user" role to the newly created user
     @user.add_role :user
     if @user.save
+      warden.logout
+      
       flash[:notice] = t("registrations.user.success")
-      redirect_to :root
+      respond_to do |format|
+        format.html do
+          authenticate!
+          redirect_to user_path(current_user) 
+        end
+        format.json { render :create }
+      
+      end
     end
   end
 
