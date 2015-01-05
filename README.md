@@ -3,14 +3,11 @@ BaseBackend
 
 goal for this project is to provide a RoR app template which contains:
 
-- Authentication/Authorisation, through mobile or web, or through oauth providers such as Facebook, Twitter, Google+ ()
+- Authentication/Authorisation, through mobile or web, or through oauth providers such as Facebook, Twitter, Google+ (done, oauth FB demo provided)
 
+- App should be made in such a fashion it can be packed as some kind of distributed system in Docker or similar so we can deploy it to AWS, Digital Ocean or anywhere else, and also, to Heroku if needed - (TBD)
 
-- API points for most actions, so we can access with a pure JSON to make it possible for iOS, Android, or any other client frontend to feel welcome as being the frontend for this app
-
-- App should be made in such a fashion it can be packed as some kind of distributed system in Docker or similar so we can deploy it to AWS, Digital Ocean or anywhere else, and also, to Heroku if needed
-
-- push notifications should be possible for mobile apps, push should be done through houston/any gem for android, with separation of concerns executed in such a way that we can realtively easily switch to commercial push provider, such as urban airship
+- push notifications should be possible for mobile apps, push should be done through houston/any gem for android, with separation of concerns executed in such a way that we can realtively easily switch to commercial push provider, such as urban airship - (OUT OF SCOPE)
 
 - let's try to do authentication with warden (done)
 

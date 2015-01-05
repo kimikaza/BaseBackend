@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
 
   def self.from_email(email)
     where("email = ?", email).first
+  end
 
   def self.from_omniauth(auth)
     where("email = ?", auth[:info][:email]).first
